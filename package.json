@@ -1,5 +1,5 @@
 {
-  "name": "form-validation-javascript",
+  "name": "form-validation",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,15 +7,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sahaavi/Form-Validation-JavaScript.git"
+    "url": "git+https://github.com/sahaavi/Form-Validation.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sahaavi/Form-Validation-JavaScript/issues"
+    "url": "https://github.com/sahaavi/Form-Validation/issues"
   },
-  "homepage": "https://github.com/sahaavi/Form-Validation-JavaScript#readme",
+  "homepage": "https://github.com/sahaavi/Form-Validationt#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
