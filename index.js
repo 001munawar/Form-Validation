@@ -8,10 +8,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-  host: 'your-rds-endpoint',
-  user: 'admin',
-  password: 'yourpassword123',
-  database: 'users'
+  host: 'database-1.cl4wouqcsn6c.ap-south-1.rds.amazonaws.com',
+  user: 'Myapp',
+  password: 'EfDPKdMMlEjxyM6kQul1',
+  database: 'database-1'
 });
 
 db.connect(err => {
