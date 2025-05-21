@@ -85,7 +85,7 @@ function validation() {
       return false;
     }
   }
-  fetch('http://43.204.36.160 :3000/signup', {
+  fetch('http://43.204.36.160:3000/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
