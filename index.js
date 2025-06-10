@@ -1,7 +1,7 @@
 const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const mysql = require('mysql');
 
 const app = express();
 app.use(cors());
@@ -20,30 +20,25 @@ db.connect(err => {
 });
 
 app.post('/signup', (req, res) => {
-  const { username, password } = req.body;
-  db.query(
-    'INSERT INTO users (username, password) VALUES (?, ?)',
-    [username, password],
-    (err, result) => {
-      if (err) throw err;
-      res.send({ message: 'User signed up' });
-    }
-  );
+  const { name, username, password, email, mobile } = req.body;
+  const sql = "INSERT INTO users (name, username, password, email, mobile) VALUES (?, ?, ?, ?, ?)";
+  db.query(sql, [name, username, password, email, mobile], (err, result) => {
+    if (err) return res.status(500).send({ message: "Database error", err });
+    res.send({ message: "Signup successful" });
+  });
 });
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-  db.query(
-    'SELECT * FROM users WHERE username = ? AND password = ?',
-    [username, password],
-    (err, results) => {
-      if (err) throw err;
-      if (results.length > 0) res.send({ message: 'Login successful' });
-      else res.send({ message: 'Invalid credentials' });
+  const sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+  db.query(sql, [username, password], (err, result) => {
+    if (err) return res.status(500).send({ message: "Database error" });
+    if (result.length > 0) {
+      res.send({ message: "Login success" });
+    } else {
+      res.status(401).send({ message: "Invalid credentials" });
     }
-  );
+  });
 });
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
-});
+app.listen(3000, () => console.log("Server is running on port 3000"));
