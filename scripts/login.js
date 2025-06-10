@@ -34,7 +34,7 @@ function validation() {
         " ** Password does not match the confirm password";
       return false;
     }
-   fetch("http://3.6.94.178:3000/login", {
+   fetch("http://13.203.213.101", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username: user, password: pass })
